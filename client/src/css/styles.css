@@ -1,3 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@1&display=swap');
 .App {
   text-align: center;
+}
+
+/* Navigation */
+
+.navigation{
+  font-family:'Nunito Sans', sans-serif;
+  font-size: 20px;
+  color:black;
+}
+.navigation:link{
+  color:black;
+}
+.navigation:visited{
+  color:black;
+}
+.navigation:hover{
+  color:black;
+  text-decoration: none;
+}
+.navigation:active{
+  color:black;
+}
+
+/* Card */
+
+.card:hover{
+  filter:brightness(75%);
+  border-width: 1.5px;
+}
+
+/* Line */
+hr.line {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+}
+hr.line:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
 }
