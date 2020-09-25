@@ -14,7 +14,7 @@ class Home extends Component {
   }
   render() {
     return (
-      <Container className="App" style={{ backgroundColor: "white", padding: 0, height: "100%",paddingBottom:"2%" }}>
+      <Container className="App">
         <Image style={{ width: "100%", height: "31.25rem" }} src={image} fluid />
         <h1 style={{ marginTop: "2%" }}>Welcome to Your Cocktail Cabinet</h1>
         <NavBar />

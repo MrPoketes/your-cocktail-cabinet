@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@1&display=swap');
 .App {
   text-align: center;
+  background-color: white;
+  padding:0;
+  padding-bottom: 2%;
+  height:100%;
+
 }
 
 /* Navigation */
@@ -48,4 +53,8 @@ hr.line:after {
   font-size: 1.5em;
   padding: 0 0.25em;
   background: white;
+}
+
+.drinkImage{
+  width:75%;
 }
