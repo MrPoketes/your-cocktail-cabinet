@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, NavLink, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "../css/styles.css";
-import SearchName from "./SearchName";
-import SearchIngredient from "./SearchIngredient";
+import Search from "./Search";
 import UserProfile from "./UserProfile";
 import Home from "./Home";
 import Cocktail from "./Cocktail";
@@ -17,11 +16,8 @@ export default class Navigation extends Component {
                             <Home/>
                         </Route>
                         <Route exact path="/cocktail/:id" render={(props) => <Cocktail {...props}/>}/>
-                        <Route exact path="/searchName">
-                            <SearchName/>
-                        </Route>
-                        <Route exact path="/searchIngredient">
-                            <SearchIngredient/>
+                        <Route exact path="/search">
+                            <Search/>
                         </Route>
                         <Route exact path="/user">
                             <UserProfile/>

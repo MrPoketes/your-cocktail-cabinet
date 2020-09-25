@@ -8,7 +8,7 @@ const CocktailShowcase = (props) => {
             <Card className="card" border="dark" style={{ width: "16rem" }}>
                 <Card.Img variant="top" src={props.image} />
                 <Card.Body>
-                    <Card.Title style={{fontSize:"15px",margin:0, fontFamily:'Nunito Sans'}}>{props.name}</Card.Title>
+                    <Card.Title style={{fontSize:"13px",margin:0, fontFamily:'Nunito Sans'}}>{props.name}</Card.Title>
                 </Card.Body>
             </Card>
         </div>

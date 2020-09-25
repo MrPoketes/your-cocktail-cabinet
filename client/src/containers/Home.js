@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "../css/styles.css";
 import { Container,Image } from "react-bootstrap";
 import image from "../images/cocktails.jpg";
-import { getByIngredient } from "../actions";
+import { getByIngredient,unmountByIngredient } from "../actions";
 import { connect } from "react-redux";
 import CocktailShowcase from "../components/CocktailShowcase";
 import NavBar from "../components/NavBar";
@@ -11,6 +11,9 @@ import {NavLink} from "react-router-dom";
 class Home extends Component {
   async componentDidMount() {
     await this.props.getByIngredient("Tequila");
+  }
+  async componentWillUnmount(){
+    await this.props.unmountByIngredient();
   }
   render() {
     return (
@@ -38,7 +41,8 @@ const mapStateToProps = (state) => {
   }
 };
 const mapDispatchToProps = {
-  getByIngredient
+  getByIngredient,
+  unmountByIngredient
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

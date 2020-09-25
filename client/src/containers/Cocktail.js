@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../css/styles.css";
-import { getById } from "../actions";
+import { getById,unmountById } from "../actions";
 import { connect } from "react-redux";
 import { Container, Row, Col,Image } from "react-bootstrap";
 import NavBar from "../components/NavBar";
@@ -18,6 +18,9 @@ class Cocktail extends Component {
     }
     async componentDidMount() {
         await this.props.getById(drinkId);
+    }
+    async componentWillUnmount(){
+        await this.props.unmountById();
     }
     render() {
         return (
@@ -54,7 +57,8 @@ const mapStateToProps = (state) => {
     }
 };
 const mapDispatchToProps = {
-    getById
+    getById,
+    unmountById
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cocktail);

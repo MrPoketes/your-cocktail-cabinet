@@ -16,3 +16,28 @@ export const getById = (id) => (dispatch) => {
                 payload: data
             }))
 }
+export const getByName = (name) => (dispatch) => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
+        .then(res => res.json())
+        .then(data =>
+            dispatch({
+                type: "GET_BY_NAME",
+                payload: data
+            }))
+}
+// Unmounting
+export const unmountByIngredient = () => (dispatch) => {
+    dispatch({
+        type: "UNMOUNT_BY_INGREDIENT"
+    });
+}
+export const unmountByName = () => (dispatch) => {
+    dispatch({
+        type: "UNMOUNT_BY_NAME"
+    });
+}
+export const unmountById = () => (dispatch) => {
+    dispatch({
+        type: "UNMOUNT_BY_ID"
+    });
+}
