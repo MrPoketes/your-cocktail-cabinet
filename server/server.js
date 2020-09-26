@@ -34,7 +34,7 @@ app.use(cors());
 // Passport / Authentication
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/auth",authenticationRoutes);
-app.use("/user",userRoutes);
+app.use("/auth", authenticationRoutes);
+app.use("/user", userRoutes);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
