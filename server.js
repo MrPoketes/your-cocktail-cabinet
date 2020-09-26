@@ -5,10 +5,10 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const passport = require("passport");
 const PORT = process.env.PORT || 8088;
+const path = require("path");
 require("dotenv").config();
 // Routes
-const authenticationRoutes = require("./routes/authentication");
-const userRoutes = require("./routes/user");
+const routes = require("./routes/index");
 
 const uri = process.env.ATLAS_URI;
 
@@ -31,10 +31,15 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routes
+app.use(routes);
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
+    app.use(express.static("client/build"));
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname + "client/build/index.html"));
+    });
+}
 // Passport / Authentication
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/auth", authenticationRoutes);
-app.use("/user", userRoutes);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
