@@ -6,6 +6,7 @@ import UserProfile from "./UserProfile";
 import Home from "./Home";
 import Cocktail from "./Cocktail";
 
+// TODO: add routes to login,register
 export default class Navigation extends Component {
     render() {
         return (
@@ -13,18 +14,18 @@ export default class Navigation extends Component {
                 <Router>
                     <Switch>
                         <Route exact path="/">
-                            <Home/>
+                            <Home />
                         </Route>
-                        <Route exact path="/cocktail/:id" render={(props) => <Cocktail {...props}/>}/>
+                        <Route exact path="/cocktail/:id" render={(props) => <Cocktail {...props} />} />
                         <Route exact path="/search">
-                            <Search/>
+                            <Search />
                         </Route>
                         <Route exact path="/user">
-                            <UserProfile/>
+                            <UserProfile />
                         </Route>
                         <Route render={
-                            () => <h3 style={{color:"white",marginTop:"2%",textAlign:"center"}}>Page Not Found</h3>
-                        }/>
+                            () => <h3 style={{ color: "white", marginTop: "2%", textAlign: "center" }}>Page Not Found</h3>
+                        } />
                     </Switch>
                 </Router>
             </div>

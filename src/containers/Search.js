@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import { NavLink } from "react-router-dom";
 import Searchbar from "../components/Searchbar";
 import { connect } from "react-redux";
-import { getByIngredient, getByName,unmountByIngredient,unmountByName } from "../actions";
+import { getByIngredient, getByName, unmountByIngredient, unmountByName } from "../actions";
 import CocktailShowcase from "../components/CocktailShowcase";
 // Global variables
 
@@ -13,7 +13,7 @@ class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            padding:"15%",
+            padding: "15%",
             searchBy: "Search by name"
         };
         this.handleClickName = this.handleClickName.bind(this);
@@ -32,7 +32,7 @@ class Search extends Component {
     }
     async handleSearch(input, by) {
         this.setState({
-            padding:"2%"
+            padding: "2%"
         });
         if (by === "Search by name") {
             await this.props.getByName(input);
@@ -41,14 +41,14 @@ class Search extends Component {
             await this.props.getByIngredient(input);
         }
     }
-    async componentWillUnmount(){
+    async componentWillUnmount() {
         await this.props.unmountByIngredient();
         await this.props.unmountByName();
     }
     render() {
         const styles = {
             containerStyle: {
-                paddingTop:"1%",
+                paddingTop: "1%",
                 paddingBottom: this.state.padding
             }
         }

@@ -6,10 +6,10 @@ const CocktailInfo = (props) => {
         <div>
             <h2>Ingredients</h2>
             <hr className="line" />
-            <ul style={{textAlign:"left"}}>
+            <ul style={{ textAlign: "left" }}>
                 <li>Served in {props.glass}</li>
-                {props.ingredients.map((data,i)=>
-                <li key={i}>{props.measures[i]} {data}</li>
+                {props.ingredients.map((data, i) =>
+                    <li key={i}>{props.measures[i]} {data}</li>
                 )}
             </ul>
             <h2 style={{ marginTop: "3%" }}>Instructions</h2>

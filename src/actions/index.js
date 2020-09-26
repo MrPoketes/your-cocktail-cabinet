@@ -25,6 +25,9 @@ export const getByName = (name) => (dispatch) => {
                 payload: data
             }))
 }
+// TODO: add login,register,adding user cocktails, removing user cocktails, getting user cocktails (From backend)
+
+
 // Unmounting
 export const unmountByIngredient = () => (dispatch) => {
     dispatch({

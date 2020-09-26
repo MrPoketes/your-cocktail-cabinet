@@ -1,25 +1,28 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { FormControl, Button, InputGroup } from "react-bootstrap";
 import "../css/styles.css";
 
+
 export default class Searchbar extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handlePress = this.handlePress.bind(this);
     }
-    handleClick(){
+    // Activates when clicked on the button
+    handleClick() {
         var inputValue = ReactDOM.findDOMNode(this.refs.input).value;
-        this.props.search(inputValue,this.props.by);
+        this.props.search(inputValue, this.props.by);
     }
-    handlePress(target){
-        if(target.key==="Enter"){
+    // Activates when user pressess the enter button on the form
+    handlePress(target) {
+        if (target.key === "Enter") {
             var inputValue = ReactDOM.findDOMNode(this.refs.input).value;
-            this.props.search(inputValue,this.props.by);
+            this.props.search(inputValue, this.props.by);
         }
     }
-    render(){
+    render() {
         return (
             <div>
                 <InputGroup onKeyPress={this.handlePress} className="mb-3 search">
