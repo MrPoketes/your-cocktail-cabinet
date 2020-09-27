@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import { FormControl, Button, InputGroup } from "react-bootstrap";
 import "../css/styles.css";
 
-
 export default class Searchbar extends Component {
     constructor(props) {
         super(props);
+        // Handle functions
         this.handleClick = this.handleClick.bind(this);
         this.handlePress = this.handlePress.bind(this);
     }

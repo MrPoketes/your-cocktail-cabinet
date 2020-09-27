@@ -38,7 +38,7 @@
 
 /* Line */
 hr.line {
-  overflow: visible; /* For IE */
+  overflow: visible;
   padding: 0;
   border: none;
   border-top: medium double #333;
@@ -64,4 +64,12 @@ hr.line:after {
   margin-right: 30%;
   margin-left:34%;
   width:32% !important;
+}
+
+.deleteButton {
+  margin-top:1%;
+}
+.deleteButton:hover {
+  background-color: red;
+  border-color:red;
 }

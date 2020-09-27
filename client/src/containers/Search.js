@@ -14,7 +14,7 @@ class Search extends Component {
         super(props);
         this.state = {
             padding: "15%",
-            searchBy: "Search by name"
+            searchBy: "Search by name",
         };
         this.handleClickName = this.handleClickName.bind(this);
         this.handleClickIng = this.handleClickIng.bind(this);
@@ -54,11 +54,15 @@ class Search extends Component {
         }
         return (
             <Container className="App" style={styles.containerStyle}>
+                {/* Navigation section */}
                 <h1 style={{ marginBottom: "1%" }}>Navigation</h1>
                 <hr className="line" />
                 <NavLink style={{ fontSize: "26px" }} className="navigation" exact to="/">Home</NavLink>
                 <div style={{ marginTop: "1%" }}></div>
                 <NavBar />
+
+                {/* Search section */}
+
                 <hr className="line" />
                 <h1 style={{ marginTop: "2%" }}>Search Section</h1>
                 <hr className="line" />
@@ -67,22 +71,34 @@ class Search extends Component {
                     <Button onClick={this.handleClickIng} variant="dark" style={{ marginLeft: "1%" }}>Search by ingredient</Button>
                 </div>
                 <Searchbar search={this.handleSearch} by={this.state.searchBy} />
-
                 {(this.props.name !== null) || (this.props.ingredient !== null) ?
                     <div>
-                        {this.props.name ?
+                        {/* If the user searches by name, the render function will render this section of code */}
+                        {this.props.name && this.props.name.drinks ?
                             <div>
                                 {this.props.name.drinks.map((data, i) =>
                                     <NavLink key={i} className="navigation" exact to={`/cocktail/:${data.idDrink}`}><CocktailShowcase key={i} image={data.strDrinkThumb} name={data.strDrink} id={data.idDrink} /></NavLink>
                                 )}
-                            </div> : <div></div>
+                            </div> : <div>
+                                {this.props.ingredient ?
+                                    <div></div>
+                                    : <h4>Could not find anything</h4>
+                                }
+                            </div>
                         }
-                        {this.props.ingredient ?
+                        {this.props.ingredient && this.props.ingredient.drinks ?
                             <div>
+                                {/* If the user searches by ingredient, the render function will render this section of code */}
                                 {this.props.ingredient.drinks.map((data, i) =>
                                     <NavLink key={i} className="navigation" exact to={`/cocktail/:${data.idDrink}`}><CocktailShowcase key={i} image={data.strDrinkThumb} name={data.strDrink} id={data.idDrink} /></NavLink>
                                 )}
-                            </div> : <div></div>
+                            </div> :
+                            <div>
+                                {this.props.name ?
+                                    <div></div>
+                                    : <h4>Could not find anything</h4>
+                                }
+                            </div>
                         }
                     </div> : <div></div>
                 }

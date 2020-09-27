@@ -1,3 +1,7 @@
+const axios = require("axios");
+require("dotenv").config();
+const url = process.env.URL || "http://localhost:8088";
+
 export const getByIngredient = (ingredient) => (dispatch) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
         .then(res => res.json())
@@ -25,10 +29,88 @@ export const getByName = (name) => (dispatch) => {
                 payload: data
             }))
 }
-// TODO: add login,register,adding user cocktails, removing user cocktails, getting user cocktails (From backend)
 
+// Fetching from backend
+
+export const login = (loginUsername, loginPassword) => (dispatch) => {
+    axios({
+        method: "POST",
+        withCredentials: true,
+        url: `${url}/auth/login`,
+        data: {
+            username: loginUsername,
+            password: loginPassword
+        }
+    })
+        .then(data =>
+            dispatch({
+                type: "LOGIN_USER",
+                payload: data
+            }))
+}
+
+export const register = (registerUsername, registerPassword) => (dispatch) => {
+    axios({
+        method: "POST",
+        withCredentials: true,
+        url: `${url}/auth/register`,
+        data: {
+            username: registerUsername,
+            password: registerPassword
+        }
+    })
+        .then(data =>
+            dispatch({
+                type: "REGISTER_USER",
+                payload: data
+            }))
+}
+export const getCocktails = (username) => (dispatch) => {
+    fetch(`${url}/user/${username}`)
+        .then(res => res.json())
+        .then(data =>
+            dispatch({
+                type: "GET_COCKTAILS",
+                payload: data
+            }))
+}
+export const saveCocktail = (loginUsername, drinkName, drinkId, drinkImage) => (dispatch) => {
+    axios({
+        method: "POST",
+        withCredentials: true,
+        url: `${url}/user/`,
+        data: {
+            username: loginUsername,
+            name: drinkName,
+            id: drinkId,
+            image: drinkImage
+        }
+    })
+        .then(data =>
+            dispatch({
+                type: "SAVE_COCKTAIL",
+                payload: data
+            }))
+}
+export const deleteCocktail = (loginUsername, drinkId) => (dispatch) => {
+    axios({
+        method: "DELETE",
+        withCredentials: true,
+        url: `${url}/user/delete`,
+        data: {
+            username: loginUsername,
+            id: drinkId
+        }
+    })
+        .then(data =>
+            dispatch({
+                type: "DELETE_COCKTAIL",
+                payload: data
+            }))
+}
 
 // Unmounting
+
 export const unmountByIngredient = () => (dispatch) => {
     dispatch({
         type: "UNMOUNT_BY_INGREDIENT"
@@ -43,4 +125,19 @@ export const unmountById = () => (dispatch) => {
     dispatch({
         type: "UNMOUNT_BY_ID"
     });
+}
+export const unmountSaved = () => (dispatch) => {
+    dispatch({
+        type: "UNMOUNT_SAVED"
+    });
+}
+export const logout = () => (dispatch) => {
+    dispatch({
+        type: "LOGOUT"
+    })
+}
+export const unmountLogin = () => (dispatch) => {
+    dispatch({
+        type: "UNMOUNT_LOGIN"
+    })
 }

@@ -23,7 +23,7 @@ const cocktailReducer = (state = initialState, action) => {
             // Api gives strIngredient1, strIngredient2, ... as strings not in array
             // So this while loop just check if strIngredientN is not null and adds it to the array. N being the index
             // Same with measurements.
-            
+
             while (obj[`strIngredient${index}`] !== null) {
                 ingredients.push(obj[`strIngredient${index}`]);
                 measures.push(obj[`strMeasure${index}`]);
@@ -50,7 +50,7 @@ const cocktailReducer = (state = initialState, action) => {
                 byName: action.payload,
                 byIngredient: null
             }
-        
+
         // Unmounting
         case "UNMOUNT_BY_INGREDIENT":
             return {

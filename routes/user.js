@@ -50,7 +50,7 @@ router.post("/", async (req, res) => {
                     res.send(err);
                 }
                 else {
-                    res.send(info);
+                    res.send("Successfully posted");
                 }
             })
         }

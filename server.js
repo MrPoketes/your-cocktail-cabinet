@@ -28,18 +28,24 @@ app.use(bodyParser.json());
 
 // Cors (probably will need to adjust it later)
 
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000",
+    methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
+    allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json',
+    credentials: true,
+}));
 
 // Routes
-app.use(routes);
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
     app.use(express.static("client/build"));
-    app.get("*",(req,res)=>{
+    app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname + "client/build/index.html"));
     });
 }
+
 // Passport / Authentication
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(routes);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
