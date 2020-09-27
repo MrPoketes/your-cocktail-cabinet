@@ -66,7 +66,7 @@ export const register = (registerUsername, registerPassword) => (dispatch) => {
             }))
 }
 export const getCocktails = (username) => (dispatch) => {
-    fetch(`${url}/user/${username}`)
+    fetch(`${url}/userCocktails/${username}`)
         .then(res => res.json())
         .then(data =>
             dispatch({
@@ -78,7 +78,7 @@ export const saveCocktail = (loginUsername, drinkName, drinkId, drinkImage) => (
     axios({
         method: "POST",
         withCredentials: true,
-        url: `${url}/user/`,
+        url: `${url}/userCocktails/`,
         data: {
             username: loginUsername,
             name: drinkName,
@@ -96,7 +96,7 @@ export const deleteCocktail = (loginUsername, drinkId) => (dispatch) => {
     axios({
         method: "DELETE",
         withCredentials: true,
-        url: `${url}/user/delete`,
+        url: `${url}/userCocktails/delete`,
         data: {
             username: loginUsername,
             id: drinkId
