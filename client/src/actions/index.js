@@ -1,6 +1,7 @@
 const axios = require("axios");
 require("dotenv").config();
-const url = process.env.URL || "http://localhost:8088";
+// const url = process.env.URL || "http://localhost:8088";
+const url = "";
 
 export const getByIngredient = (ingredient) => (dispatch) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
