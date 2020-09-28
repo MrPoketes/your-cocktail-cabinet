@@ -29,19 +29,19 @@ app.use(bodyParser.json());
 // Cors (probably will need to adjust it later)
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://your-cocktail-cabinet.netlify.app",
     methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
     allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json',
     credentials: true,
 }));
 
-app.use(express.static(path.join(__dirname,'/client/build')));
-// Routes
-if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname,'client','build','index.html'));
-    });
-}
+// app.use(express.static(path.join(__dirname,'/client/build')));
+// // Routes
+// if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
+//     app.get("*", (req, res) => {
+//         res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+//     });
+// }
 
 // Passport / Authentication
 app.use(passport.initialize());
