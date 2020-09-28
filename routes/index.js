@@ -3,6 +3,6 @@ const router = express.Router();
 const authenticationRoutes = require("./authentication");
 const userRoutes = require("./user");
 
-router.use("/auth",authenticationRoutes);
-router.use("/userCocktails",userRoutes);
+router.use("/api/auth",authenticationRoutes);
+router.use("/api/userCocktails",userRoutes);
 module.exports = router;
