@@ -11,6 +11,7 @@
 <li>React Router</li>
 <li>Axios</li>
 </ul>
+
 <h3>For backend<h3>
 <ul>
 <li>Node.js, Express.js</li>
@@ -18,6 +19,7 @@
 <li>Mongoose for connecting to MongoDB</li>
 <li>Bcrypt for encrypting user password</li>
 </ul>
+
 <a href="https://your-cocktail-cabinet.netlify.app"><h2>Demo</h2></a>
 
 <h2>Home Screen</h2>
