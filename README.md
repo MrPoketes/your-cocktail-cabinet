@@ -3,14 +3,13 @@
 <h2>About</h2>
 <p>Your Cocktail Cabinet is a website, where you can find various of cocktail recipes, either by searching by their name or by a specific ingredient you like. You can also save the cocktails you enjoy, if you are loged in</p>
 <h2>Tools used<h2>
-<h3>For frontend</h3>
 <ul>
 <li>React</li>
 <li>Redux, Redux-thunk, React-Redux</li>
 <li>React Bootstrap</li>
 <li>React Router</li>
 <li>Axios</li>
-
+<hr/>
 <li>Node.js, Express.js</li>
 <li>Passport for authentication</li>
 <li>Mongoose for connecting to MongoDB</li>
