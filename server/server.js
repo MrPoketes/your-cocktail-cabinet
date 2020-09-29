@@ -21,6 +21,10 @@ mongoose.connect(uri, { useFindAndModify: false, useUnifiedTopology: true, useNe
 
 mongoose.Promise = global.Promise;
 
+// Testing
+app.get("/",(req,res)=>{
+    res.send("Testing if works")
+});
 // App use
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,17 +39,9 @@ app.use(cors({
     credentials: true,
 }));
 
-// app.use(express.static(path.join(__dirname,'/client/build')));
-// // Routes
-// if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
-//     app.get("*", (req, res) => {
-//         res.sendFile(path.resolve(__dirname,'client','build','index.html'));
-//     });
-// }
-
 // Passport / Authentication
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(routes);
+app.use("/api",routes);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))

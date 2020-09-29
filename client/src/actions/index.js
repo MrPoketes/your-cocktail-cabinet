@@ -1,7 +1,6 @@
 const axios = require("axios");
 require("dotenv").config();
-// const url = process.env.URL || "http://localhost:8088";
-const url = "/api";
+const url = process.env.URL || "http://localhost:8088";
 
 export const getByIngredient = (ingredient) => (dispatch) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
@@ -37,7 +36,7 @@ export const login = (loginUsername, loginPassword) => (dispatch) => {
     axios({
         method: "POST",
         withCredentials: true,
-        url: `${url}/auth/login`,
+        url: `${url}/api/auth/login`,
         data: {
             username: loginUsername,
             password: loginPassword
@@ -54,7 +53,7 @@ export const register = (registerUsername, registerPassword) => (dispatch) => {
     axios({
         method: "POST",
         withCredentials: true,
-        url: `${url}/auth/register`,
+        url: `${url}/api/auth/register`,
         data: {
             username: registerUsername,
             password: registerPassword
@@ -67,7 +66,7 @@ export const register = (registerUsername, registerPassword) => (dispatch) => {
             }))
 }
 export const getCocktails = (username) => (dispatch) => {
-    fetch(`${url}/userCocktails/${username}`)
+    fetch(`${url}/api/userCocktails/${username}`)
         .then(res => res.json())
         .then(data =>
             dispatch({
@@ -79,7 +78,7 @@ export const saveCocktail = (loginUsername, drinkName, drinkId, drinkImage) => (
     axios({
         method: "POST",
         withCredentials: true,
-        url: `${url}/userCocktails/`,
+        url: `${url}/api/userCocktails/`,
         data: {
             username: loginUsername,
             name: drinkName,
@@ -97,7 +96,7 @@ export const deleteCocktail = (loginUsername, drinkId) => (dispatch) => {
     axios({
         method: "DELETE",
         withCredentials: true,
-        url: `${url}/userCocktails/delete`,
+        url: `${url}/api/userCocktails/delete`,
         data: {
             username: loginUsername,
             id: drinkId
