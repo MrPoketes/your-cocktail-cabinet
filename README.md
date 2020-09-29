@@ -9,7 +9,6 @@
 <li>React Bootstrap</li>
 <li>React Router</li>
 <li>Axios</li>
-<hr/>
 <li>Node.js, Express.js</li>
 <li>Passport for authentication</li>
 <li>Mongoose for connecting to MongoDB</li>
