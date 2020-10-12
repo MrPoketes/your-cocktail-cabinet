@@ -1,6 +1,7 @@
 const axios = require("axios");
 require("dotenv").config();
-const url = "https://your-cocktail-cabinet-backend.herokuapp.com" || "http://localhost:8088";
+// const url = "https://your-cocktail-cabinet-backend.herokuapp.com" || "http://localhost:8088";
+const url = "http://localhost:8088"
 
 export const getByIngredient = (ingredient) => (dispatch) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)

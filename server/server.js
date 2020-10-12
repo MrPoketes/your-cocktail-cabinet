@@ -36,12 +36,13 @@ app.use(cors({
     origin: "https://your-cocktail-cabinet.netlify.app",
     methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
     allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json',
-    credentials: true,
+    // credentials: true,
 }));
 
 // Passport / Authentication
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/api",routes);
+
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
